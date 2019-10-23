@@ -1,54 +1,46 @@
-import uuid from 'uuid';
-import { GET_ITEM, DELETE_ITEM , ADD_ITEM } from '../type';
+import { GET_ITEMS, EDIT_ITEM, DELETE_ITEM , ADD_ITEM, LOADING_ITEMS } from '../type';
 
 
 const initState = {
-    items: [
-        {
-          id: uuid(),
-          name: "Milk"
-        },
-        {
-          id: uuid(),
-          name: "Steak"
-        },
-        {
-          id: uuid(),
-          name: "Food"
-        },
-        {
-          id: uuid(),
-          name: "Eggs"
-        },
-        {
-          id: uuid(),
-          name: "Meal"
-        },
-        {
-          id: uuid(),
-          name: "Bread"
-        }
-      ]
+    items: [],
+    loading: false
 }
 
 export default function (state = initState, action) {
 
   switch(action.type){
-    case GET_ITEM : 
+    case GET_ITEMS : 
       return {
-        ...state
+        ...state,
+        items: action.payload,
+        loading: false
+      }
+
+    case EDIT_ITEM : 
+      return {
+        ...state,
+        item: action.payload,
+        loading: false
+      }
+
+    case LOADING_ITEMS : 
+      return {
+        ...state,
+        loading: true
       }
 
     case DELETE_ITEM: 
       return {
         ...state,
-        items: state.items.filter(item => item.id !== action.payload)
+        items: state.items.filter(item => item._id !== action.payload),
+        loading: false
       }
 
     case ADD_ITEM: 
       return {
         ...state,
-        items: [action.payload, ...state.items]
+        items: [action.payload, ...state.items],
+        loading: false
       }
     
     default: 

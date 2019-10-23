@@ -11,13 +11,12 @@ import {
   ModalFooter
 } from "reactstrap";
 import { connect } from "react-redux";
-import uuid from "uuid";
 import PropTypes from 'prop-types';
 
 // actions..
 import { addItem } from "../redux/action/item";
 
-const ItemModal = ({addItem}) => {
+const AddItemModal = ({addItem}) => {
     
   const [modal, setModal] = useState(false);
   const [name, setName] = useState("");
@@ -28,11 +27,8 @@ const ItemModal = ({addItem}) => {
     e.preventDefault();
 
     let new_item = {
-      id: uuid(),
       name
     };
-
-    console.log(new_item);
 
     addItem(new_item);
 
@@ -82,7 +78,7 @@ const ItemModal = ({addItem}) => {
   );
 };
 
-ItemModal.propTypes = {
+AddItemModal.propTypes = {
   addItem: PropTypes.func.isRequired,
   item: PropTypes.object.isRequired
 };
@@ -95,4 +91,4 @@ const mapStateToProps = state => ({
 export default connect(
   mapStateToProps,
   { addItem }
-)(ItemModal);
+)(AddItemModal);

@@ -7,10 +7,6 @@ import {
   Nav,
   NavItem,
   NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
   Container
 } from "reactstrap";
 
@@ -27,9 +23,6 @@ const NavBarComponent = props => {
           <NavbarToggler onClick={toggle} />
           <Collapse isOpen={isOpen} navbar>
             <Nav className="ml-auto" navbar color="dark">
-              <NavItem>
-                <NavLink href="/components/">Components</NavLink>
-              </NavItem>
               <NavItem>
                 <NavLink href="https://github.com/ELBEQQAL94/shopping-list" target="_blank">
                   GitHub

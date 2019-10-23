@@ -2,7 +2,8 @@ const {
     getItems, 
     createItems, 
     editItem, 
-    deleteItem
+    deleteItem,
+    getItem
 } = require('../controllers/items');
 
 const express = require('express');
@@ -11,6 +12,9 @@ const router = express.Router();
 
 // get items
 router.get('/items', getItems);
+
+// get item
+router.get('/items/:id', getItem);
 
 // create item
 router.post('/items/create-item', createItems);

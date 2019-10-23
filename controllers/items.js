@@ -9,6 +9,17 @@ exports.getItems = (req, res ) => {
         .then(items => res.json(items))
 }
 
+// get single item
+exports.getItem = (req, res) => {
+    console.log('REQ', req.params.id)
+    Item.findById({_id: req.params.id})
+        .then(item => {
+            res.json(item)
+            console.log('ITEM', item)
+        })
+        .catch(err => console.log(err));
+}
+
 // create 
 exports.createItems = (req, res) => {
     const name = req.body.name;

@@ -17,13 +17,17 @@
 
 GET: /items
 
+## `GET ITEM`
+
+GET: /items/:id
+
 ## `UPDATE ITEMS`
 
-POT: /items/edit-item/:itemId
+PUT: /items/edit-item/:itemId
 
 ## `CREATE ITEMS`
 
-PUT: /items/create-item
+POST: /items/create-item
 
 ## `DELETE ITEMS`
 
