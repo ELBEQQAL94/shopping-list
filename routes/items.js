@@ -6,6 +6,8 @@ const {
     getItem
 } = require('../controllers/items');
 
+const { auth } = require('../middleware/auth');
+
 const express = require('express');
 
 const router = express.Router();
@@ -14,15 +16,15 @@ const router = express.Router();
 router.get('/items', getItems);
 
 // get item
-router.get('/items/:id', getItem);
+router.get('/items/:id', auth, getItem);
 
 // create item
-router.post('/items/create-item', createItems);
+router.post('/items/create-item', auth, createItems);
 
 // update item
-router.put('/items/edit-item/:itemId', editItem);
+router.put('/items/edit-item/:itemId', auth, editItem);
 
 // delete item
-router.delete('/items/:itemId', deleteItem);
+router.delete('/items/:itemId', auth, deleteItem);
 
 module.exports = router;

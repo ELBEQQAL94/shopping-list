@@ -13,6 +13,8 @@
 
 ### npm run server on PORT{8000}
 
+### ITEM APIS
+
 ## `GET ITEMS`
 
 GET: /items
@@ -32,3 +34,29 @@ POST: /items/create-item
 ## `DELETE ITEMS`
 
 DELETE: /items/:itemId
+
+### USER APIS
+
+## `GET USERS`
+
+GET: /users
+
+## `GET user`
+
+GET: /users/:id
+
+## `UPDATE USERS`
+
+PUT: /users/edit-user/:userId
+
+## `CREATE USERS`
+
+POST: /signup
+
+## `DELETE USERS`
+
+DELETE: /users/:userId
+
+## `AUTH USER`
+
+POST: /sign-in
